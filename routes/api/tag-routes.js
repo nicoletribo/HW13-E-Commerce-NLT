@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       }]
     })
     if (!tagInfo) {
-      res.status(404).json({ message: 'Unable to retrieve tags' });
+      res.status(404).json({ message: 'Unable to find tags' });
     }
     res.status(200).json(tagInfo);
   } catch (err) {
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
     }]
    });
     if (!tagInfo) {
-      res.status(404).json({ message: 'Tag not found' })
+      res.status(404).json({ message: 'Unable to find a tag' })
     }
     res.status(200).json(tagInfo)
   } catch (err) {
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
       }
     })
     if (!tagInfo) {
-      res.status(404).json({ message: 'unable to create new tag' })
+      res.status(404).json({ message: 'Unable to create a new tag.' })
     }
     res.status(200).json(tagInfo);
   } catch (err) {
@@ -68,7 +68,7 @@ router.put('/:id', async (req, res) => {
       }
     });
     if (!tagInfo) {
-      res.status(404).json({ message: 'unable to update, tag not found' });
+      res.status(404).json({ message: 'Unable to update, could not find a tag with that id.' });
     }
     res.status(200).json(tagInfo);
   } catch (err) {
@@ -84,7 +84,7 @@ router.delete('/:id', async (req, res) => {
       }
     })
     if (!tagInfo) {
-      res.status(404).json({message: 'Unable to delete, Tag not found!'});
+      res.status(404).json({message: 'Unable to delete, could not find a tag with that id.'});
     }
     res.status(200).json(tagInfo);
   } catch (err) {
